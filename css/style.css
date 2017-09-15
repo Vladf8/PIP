@@ -1,0 +1,50 @@
+body
+{
+	background-color: #2618B1;
+	color: white;
+}
+
+header
+{
+	background-color: #594CD8;
+	font-family: serif;
+	padding-right:40px;
+}
+h1
+{
+	text-align: center;
+	font-size: 30pt;
+	color: #BF9F30;
+}
+h3
+{
+	text-align: right;
+	font-size: 16pt;
+	color: #BF9F30;
+}
+h1:first-letter
+{
+	color: #A68100;
+}
+input 
+{
+	margin-left: 10px;
+}
+
+.buttons {
+	background-color: #594CD8;
+	padding: 5px;
+}
+
+.buttons > input
+{
+	background-color: #120873;
+	color: white;
+	border: solid 0px;
+	width:5%;
+	padding: 5px;
+}
+input:focus
+{
+	outline-color: #FFC600;
+}

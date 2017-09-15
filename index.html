@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Laboratory work 1</title>
+		<link href="css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<h1>Лабораторная работа №1</h1>
+			<h3>Выполнили: Хлопков Д.С., Фищенко В. P3217</h3>
+			<h3>Проверил: Николаев В.В.</h3>
+			<h3><p id="date"></p></h3>
+			<script type="text/javascript">
+				setInterval(function () {
+					var date = new Date();
+					var hours= date.getHours();
+					var minutes= date.getMinutes();
+					var seconds= date.getSeconds();
+					var time= hours + ":" + minutes + ":" + seconds;
+					document.getElementById("date").innerHTML=time;
+				}, 1000)
+
+			</script>
+		</header>
+		<div>
+			<form action = "app/result.php" method = "GET">
+				<p();
+				<div class = "buttons">
+					<input type="button" name="minus" value="-" onclick="x.value=x.value-1";>
+					<input type = "text" name="x" value = "0" >
+					<input type="button" name="+" value="+" onclick ="x.value=parseInt(x.value)+1";>
+				</div>
+				<p>y:
+				<input type = "text" name = "y" value="Введите y" onfocus="this.value=''; this.onfocus=null;"/>
+				<p>Radius:
+				<p>1
+				<input type = "radio" name = "r">
+				<p>2
+				<input type = "radio" name = "r">
+				<p>3
+				<input type = "radio" name = "r">
+				<p>4
+				<input type = "radio" name = "r">
+				<p>5
+				<input type = "radio" name = "r">
+				<p><input type = "submit" value = "Результат">
+			</form>
+		</div>
+	</body>
+</html>
