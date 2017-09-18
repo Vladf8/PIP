@@ -7,7 +7,9 @@
 		<script type="text/javascript">
 		var x = -5;
 		function changeX(xBtn){
+			alert (xBtn.value);
 			x = xBtn.value;
+			document.getElementById("xHidden").value = x;
 		}
 			function validate(f){
 				if (x == -5){
@@ -69,7 +71,7 @@
 					<input type = "button" name = "x3" value = "3" onclick="changeX(this);">
 					<input type = "button" name = "x4" value = "4" onclick="changeX(this);">
 					<script type="text/javascript">
-						document.write('<input type="hidden" name="x" value="' + x + '">');
+						document.write('<input id = "xHidden" type="hidden" name="x" value="' + x + '">');
 					</script>
 				</div>
 				<p>y:
