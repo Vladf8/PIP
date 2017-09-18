@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Laboratory work 1</title>
-		<link href="css/style.css" rel="stylesheet">
+		<link href="../css/style.css" rel="stylesheet">
 	</head>
 	<body>
 		<header>
@@ -11,9 +11,32 @@
 			<h3>Проверил: Николаев В.В.</h3>
 		</header>
 		<div>
+		<?php 
+			$x =  $_GET['x'];
+			$y =  $_GET['y'];
+			$r =  $_GET['r'];
+		?>
+		<img src = "../pics/areas.png"><p>
+		<p>Координаты точки: <?echo $x;?> , <?echo $y;?>
+		<p>Значение R: <?echo $r;?> <br>
 			<?php
-				echo $_GET['y'];
-
+				if ($x <= 0){
+					if ($y <= 0)
+						if ($y >= -$x - $r)
+							echo "Точка попадает в область";
+						else echo "Точка не попадает в область";
+					else
+						if ($x*$x+$y*$y <= $r*$r)
+							echo "Точка попадает в область";
+						else echo "Точка не попадает в область";
+				}
+				else
+					if ($y >= 0)
+						if ($x<=$r && $y <= $r/2)
+							echo "Точка попадает в область";
+						else echo "Точка не попадает в область";
+					else echo "Точка не попадает в область";
+				
 			?>
 		</div>
 	</body>
