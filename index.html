@@ -2,7 +2,40 @@
 <html>
 	<head>
 		<title>Laboratory work 1</title>
+		<meta charset="utf-8">
 		<link href="css/style.css" rel="stylesheet">
+		<script type="text/javascript">
+		var x = -5;
+		function changeX(xBtn){
+			x = xBtn.value;
+		}
+			function validate(f){
+				if (x == -5){
+					alert ("Не выбрано значение x");
+				}
+				else{
+					var yButton = document.getElementsByName("y");
+					if (yButton[0].value !=  -3 &&
+						yButton[0].value !=  -2 &&
+						yButton[0].value !=  -1 &&
+						yButton[0].value !=  0 &&
+						yButton[0].value !=  1 &&
+						yButton[0].value !=  2 &&
+						yButton[0].value !=  3){
+						alert ("Неверное значение y");
+					}
+					else{
+						var radiusButton = document.getElementsByName("r");
+						if (radiusButton[0].checked == false && radiusButton[1].checked == false && radiusButton[2].checked == false && radiusButton[3].checked == false && radiusButton[4].checked == false) {
+							alert ("Не введен радиус");
+						}
+						else {
+							f.submit();
+						}
+					}
+				}
+			}
+		</script>
 	</head>
 	<body>
 		<header>
@@ -23,26 +56,35 @@
 			</script>
 		</header>
 		<div>
-			<form action = "app/result.php" method = "GET">
-				<p();
+			<form id="form" action = "app/result.php?' + x +'" method = "GET" onsubmit="validate(this);return false;">
+				<p>
 				<div class = "buttons">
-					<input type="button" name="minus" value="-" onclick="x.value=x.value-1";>
-					<input type = "text" name="x" value = "0" >
-					<input type="button" name="+" value="+" onclick ="x.value=parseInt(x.value)+1";>
+					<input type = "button" name = "x-4" value = "-4" onclick="changeX(this);">
+					<input type = "button" name = "x-3" value = "-3" onclick="changeX(this);">
+					<input type = "button" name = "x-2" value = "-2" onclick="changeX(this);">
+					<input type = "button" name = "x-1" value = "-1" onclick="changeX(this);">
+					<input type = "button" name = "x0" value = "0" onclick="changeX(this);">
+					<input type = "button" name = "x1" value = "1" onclick="changeX(this);">
+					<input type = "button" name = "x2" value = "2" onclick="changeX(this);">
+					<input type = "button" name = "x3" value = "3" onclick="changeX(this);">
+					<input type = "button" name = "x4" value = "4" onclick="changeX(this);">
+					<script type="text/javascript">
+						document.write('<input type="hidden" name="x" value="' + x + '">');
+					</script>
 				</div>
 				<p>y:
 				<input type = "text" name = "y" value="Введите y" onfocus="this.value=''; this.onfocus=null;"/>
 				<p>Radius:
 				<p>1
-				<input type = "radio" name = "r">
+				<input type = "radio" name = "r" value = "1">
 				<p>2
-				<input type = "radio" name = "r">
+				<input type = "radio" name = "r" value = "2">
 				<p>3
-				<input type = "radio" name = "r">
+				<input type = "radio" name = "r" value = "3">
 				<p>4
-				<input type = "radio" name = "r">
+				<input type = "radio" name = "r" value = "4">
 				<p>5
-				<input type = "radio" name = "r">
+				<input type = "radio" name = "r" value = "5">
 				<p><input type = "submit" value = "Результат">
 			</form>
 		</div>
