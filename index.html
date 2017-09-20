@@ -6,30 +6,38 @@
 		<link href="css/style.css" rel="stylesheet">
 		<script type="text/javascript">
 		var x = -5;
+		var selectedBtn = null;
 		function changeX(xBtn){
 			x = xBtn.value;
+			if (selectedBtn != null) selectedBtn.style.backgroundColor = '#120873';
+			selectedBtn = xBtn;
+			selectedBtn.style.backgroundColor = "#BF9F30";
 			document.getElementById("xHidden").value = x;
 		}
 			function validate(f){
 				if (x == -5){
-					alert ("Не выбрано значение x");
+					f.childNodes[f.childNodes.length-2].nodeValue = 'Не выбрано значение x';
 				}
 				else{
 					var yButton = document.getElementsByName("y");
-					if (yButton[0].value >  3 ||
-						yButton[0].value <  -3 ){
-						alert ("Неверное значение y");
+					var yButton = document.getElementsByName("y"); 
+					var parsedY = parseFloat(yButton[0].value) 
+					if (parsedY > 3 || 
+						parsedY < -3 || 
+						isNaN(parsedY)){
+						f.childNodes[f.childNodes.length-2].nodeValue = "Неверное значение y";
 					}
 					else{
 						var radiusButton = document.getElementsByName("r");
 						if (radiusButton[0].checked == false && radiusButton[1].checked == false && radiusButton[2].checked == false && radiusButton[3].checked == false && radiusButton[4].checked == false) {
-							alert ("Не введен радиус");
+							f.childNodes[f.childNodes.length-2].nodeValue = "Не введен радиус";
 						}
 						else {
-							f.submit();
+							return true;
 						}
 					}
 				}
+				return false;
 			}
 		</script>
 	</head>
@@ -53,7 +61,7 @@
 		</header>
 		<div>
 			<img src = "pics/areas.png"><p>
-			<form id="form" action = "app/result.php?' + x +'" method = "GET" onsubmit="validate(this);return false;">
+			<form id="form" action = "app/result.php?' + x +'" method = "GET" onsubmit="return validate(this);">
 				<p>
 				<div class = "buttons">
 					<input type = "button" name = "x-4" value = "-4" onclick="changeX(this);">
@@ -82,7 +90,8 @@
 				<input type = "radio" name = "r" value = "4">
 				<p>5
 				<input type = "radio" name = "r" value = "5">
-				<p><input type = "submit" value = "Результат">
+				<div id = "errors"></div>
+				<p><input type = "submit" value = "Результат">	
 			</form>
 		</div>
 	</body>
