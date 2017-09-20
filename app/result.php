@@ -3,6 +3,7 @@
 	<head>
 		<title>Laboratory work 1</title>
 		<link href="../css/style.css" rel="stylesheet">
+        <meta charset="UTF-8">
 	</head>
 	<body>
 		<header>
@@ -17,8 +18,8 @@
 			$r =  $_GET['r'];
 		?>
 		<img src = "../pics/areas.png"><p>
-		<p>Координаты точки: <?echo $x;?> , <?echo $y;?>
-		<p>Значение R: <?echo $r;?> <br>
+		<p>Координаты точки: <?php echo $x;?> , <?php echo $y;?>
+		<p>Значение R: <?php echo $r;?> <br>
 			<?php
 				if ($x <= 0){
 					if ($y <= 0)
