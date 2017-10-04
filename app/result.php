@@ -21,6 +21,7 @@ session_start();
 				$r =  $_GET['r'];
 				$strike = true;
 			?>
+			<center>
 			<img src = "../pics/areas.png"><p>
 			<p>Координаты точки: (<?php echo $x;?> ; <?php echo $y;?>)
 			<p>Значение R: <?php echo $r;?> <br>
@@ -97,6 +98,8 @@ session_start();
 					}
 				?>
 			</table>
+			<a href="https://se.ifmo.ru/~s223375/" style="color: red">Назад</a>
+		</center>
 		</div>
 	</body>
 </html>
